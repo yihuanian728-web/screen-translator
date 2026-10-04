@@ -1,0 +1,23 @@
+{
+  "hotkey_selection": "ctrl+alt+z",
+  "hotkey_region": "ctrl+alt+a",
+  "hotkey_clipboard": "ctrl+alt+x",
+  "auto_selection_translate": true,
+  "selection_mode": "auto",
+  "selection_copy_fallback": true,
+  "selection_min_chars": 2,
+  "selection_max_chars": 2000,
+  "direction": "auto",
+  "ocr_engine": "auto",
+  "ocr_scale": 0,
+  "translator": "auto",
+  "translator_order": ["deepseek", "youdao", "mymemory", "google", "bing", "argos"],
+  "deepseek": {
+    "base_url": "https://api.deepseek.com/v1",
+    "model": "deepseek-chat",
+    "api_key": ""
+  },
+  "popup": true,
+  "copy_after_translate": false,
+  "history_size": 30
+}

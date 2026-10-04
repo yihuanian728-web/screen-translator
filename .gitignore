@@ -1,0 +1,25 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# ---- 本机个人数据，绝对不要提交 ----
+# config.json 里可能存着你的 DeepSeek API Key
+config.json
+# history.json 是你的翻译历史
+history.json
+
+# ---- 测试产物 ----
+_selftest/
+*.log
+
+# ---- 编辑器 / 系统 ----
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini

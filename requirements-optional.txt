@@ -1,0 +1,11 @@
+# 可选增强依赖：不装也能用，装了会多出对应的 OCR / 翻译引擎
+# 安装命令： .venv\Scripts\python.exe -m pip install -r requirements-optional.txt
+
+# 1) RapidOCR：完全离线的中英文 OCR（带自己的模型，精度比系统 OCR 高，安装包较大）
+rapidocr-onnxruntime>=1.3.0
+
+# 2) Tesseract：需要另外安装 tesseract.exe 本体，这里只是 Python 封装
+pytesseract>=0.3.10
+
+# 3) Argos Translate：完全离线的英中/中英翻译模型（首次使用会下载语言包，约 100MB）
+argostranslate>=1.9.0

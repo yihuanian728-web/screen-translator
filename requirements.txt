@@ -1,0 +1,14 @@
+# 屏幕翻译器 —— 必需依赖（安装体积很小，约 10 MB）
+Pillow>=10.0.0
+
+# 读取「鼠标当前选中的文字」用的 UI Automation 绑定（划词翻译的核心）
+uiautomation>=2.0.0
+
+# Windows 系统自带 OCR（Windows.Media.Ocr）的 Python 绑定，无需安装 Tesseract，无需联网
+winrt-runtime>=2.0.0
+winrt-Windows.Foundation[all]>=2.0.0
+winrt-Windows.Foundation.Collections[all]>=2.0.0
+winrt-Windows.Globalization[all]>=2.0.0
+winrt-Windows.Graphics.Imaging[all]>=2.0.0
+winrt-Windows.Media.Ocr[all]>=2.0.0
+winrt-Windows.Storage.Streams[all]>=2.0.0
