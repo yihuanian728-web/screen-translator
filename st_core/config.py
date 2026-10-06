@@ -34,8 +34,11 @@ DEFAULTS: dict[str, Any] = {
     "translator_order": ["deepseek", "youdao", "mymemory", "google", "bing", "argos"],
     "deepseek": {
         "base_url": "https://api.deepseek.com/v1",
-        "model": "deepseek-chat",
-        "api_key": "",                  # 填了就用大模型翻译，质量最好；留空则自动用免费接口
+        "model": "deepseek-flash",      # 官方现役模型名（旧的 deepseek-chat 已不在价目表里）
+        "api_key": "",                  # 填了就走大模型翻译，质量最好；留空则自动跳过、只走免费源
+        # 注意：填了 Key 是按 token 计费的，从 DeepSeek 账户余额扣，用多少扣多少。
+        # 翻译这种短文本用 deepseek-flash 足够，一次划词约 0.0005 元。
+        # 官方价目表：https://api-docs.deepseek.com/zh-cn/quick_start/pricing
     },
     # ---- 界面行为 ----
     "popup": True,                      # 翻译后在鼠标旁边弹出译文小窗

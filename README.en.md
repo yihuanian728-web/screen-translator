@@ -118,7 +118,16 @@ python main.py --e2e             screenshot translation end-to-end test
 | `direction` | `auto` | `auto` / `en2zh` / `zh2en` |
 | `ocr_engine` | `auto` | `auto` / `rapidocr` / `windows` / `tesseract` |
 | `translator` | `auto` | `auto` / `youdao` / `mymemory` / `google` / `bing` / `deepseek` / `argos` |
-| `deepseek.api_key` | empty | Fill it in to translate with an LLM (much better quality) |
+| `deepseek.api_key` | empty | **Leave it empty and nothing is ever billed.** Filling it in routes translations through the DeepSeek API, which is charged per token |
+| `deepseek.model` | `deepseek-flash` | Current model name (the old `deepseek-chat` is no longer in the price list) |
+
+### Does it cost anything?
+
+**By default, no.** The free providers (Youdao / MyMemory) are public endpoints and cost nothing.
+
+If you put a DeepSeek API key in, translations go through the paid API and are billed per token against your account balance — pay-as-you-go, not a subscription. With `deepseek-flash` a typical selection is roughly 100 input + 40 output tokens ≈ **¥0.0005 per lookup**, so about ¥0.5 per thousand lookups (half price during off-peak hours). See the [official price list](https://api-docs.deepseek.com/quick_start/pricing).
+
+Without a key the app skips DeepSeek entirely and only uses the free providers.
 
 ---
 

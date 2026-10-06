@@ -272,7 +272,8 @@ python main.py --smoke              界面冒烟测试
 | `direction` | `auto` | `auto` 自动判方向 / `en2zh` / `zh2en` |
 | `ocr_engine` | `auto` | `auto` / `rapidocr` / `windows` / `tesseract` |
 | `translator` | `auto` | `auto` / `youdao` / `mymemory` / `google` / `bing` / `deepseek` / `argos` |
-| `deepseek.api_key` | 空 | 填了就优先用大模型翻译（质量明显更好） |
+| `deepseek.api_key` | 空 | 填了才用大模型翻译（**按 token 计费**，留空则自动跳过、只走免费源） |
+| `deepseek.model` | `deepseek-flash` | 官方现役模型名，旧的 `deepseek-chat` 已不在价目表里 |
 | `popup` | `true` | 弹译文小窗 |
 | `copy_after_translate` | `false` | 翻译完自动复制译文 |
 
@@ -320,6 +321,11 @@ python main.py --smoke              界面冒烟测试
 
 **Q：翻译结果很生硬？**
 免费接口都是机器翻译。填一个 DeepSeek API Key（设置里），质量会明显提升。同一句 "The quick brown fox jumps over the lazy dog."，网易有道给「敏捷的棕色狐狸跳过了懒惰的狗。」
+
+**Q：接 DeepSeek 要花钱吗？**
+要。默认的免费接口（有道 / MyMemory）不产生任何费用；填了 Key 走 DeepSeek 就是**按 token 计费**，从账户余额扣，用多少扣多少，不是订阅制。
+按 [`deepseek-flash` 官方价目](https://api-docs.deepseek.com/zh-cn/quick_start/pricing) 估算：一次划词约 100 输入 + 40 输出 tokens ≈ **0.0005 元**，一千次划词大约 5 毛钱（空闲时段半价）。
+不想花钱就**别填 Key**，程序会自动跳过 deepseek、只用免费源。注意模型名填 `deepseek-flash`（旧的 `deepseek-chat` 已不在官方价目表里）。
 
 **Q：英文识别出来是 `b rown (0)<` 这种乱码？（截图翻译时）**
 系统缺英文 OCR 语言包。跑 `install_ocr.bat`，或到「设置 → 时间和语言 → 语言和区域 → English (United States) → 语言选项」勾上「光学字符识别」。
