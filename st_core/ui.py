@@ -12,7 +12,7 @@ from tkinter.scrolledtext import ScrolledText
 
 from . import ocr as ocr_mod, pipeline, selection as sel_mod, translator as tr_mod
 from .capture import Rect, virtual_screen
-from .config import Config, load_history, save_history
+from .config import APP_DIR, Config, load_history, save_history
 from .hotkey import HotkeyManager
 from .mousehook import MouseHook, cursor_pos
 from .overlay import RegionSelector
@@ -157,6 +157,12 @@ class TranslatorApp:
     # ------------------------------------------------------------ 界面
     def _build_ui(self) -> None:
         self.root.title(WINDOW_TITLE)
+        try:                                   # 窗口和任务栏图标，缺了也不影响使用
+            icon = APP_DIR / "assets" / "app.ico"
+            if icon.exists():
+                self.root.iconbitmap(default=str(icon))
+        except Exception:
+            pass
         # 字体是按系统 DPI 放大的（150% 缩放下 Tk 的 scaling 是 2.0，11pt 字就有 30px 高），
         # 所以窗口尺寸得跟着屏幕走，写死 900x600 会让工具栏被挤掉。
         sw, sh = self.root.winfo_screenwidth(), self.root.winfo_screenheight()
